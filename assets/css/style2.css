@@ -21,11 +21,12 @@
 }
 
 body {
-  margin: 0px;
+  margin-left: 0px;
   font-family: "Trebuchet MS ", arial, serif;
   background-image: url(../images/fond_jaune.png);
   color: #181818;
 }
+
 .container h1 {
   font-family: "BallparkWeiner", serif;
   font-size: 2.5em;
