@@ -457,7 +457,7 @@ var animation = function () {
     var bor11B = bor11T + bloc11H;
     cube11.style.borderRadius =
       parseFloat(cube11.style.borderRadius) + 0.1 + "px";
-    if (bor11R + mouv11X >= largEcran - 265) {
+    if (bor11R + mouv11X >= largEcran) {
       clearInterval(intervalID5);
       cube12.style.display = "block";
     } else if (
