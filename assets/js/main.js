@@ -445,7 +445,7 @@ var animation = function () {
   cube11.style.backgroundColor = "gold";
 
   var mouv11X = 3;
-  var mouv11Y = 10;
+  var mouv11Y = 7;
   var intervalID5;
   intervalID5 = window.setInterval(function () {
     finGame();
@@ -457,7 +457,7 @@ var animation = function () {
     var bor11B = bor11T + bloc11H;
     cube11.style.borderRadius =
       parseFloat(cube11.style.borderRadius) + 0.1 + "px";
-    if (bor11R + mouv11X >= largEcran - 55) {
+    if (bor11R + mouv11X >= largEcran - 265) {
       clearInterval(intervalID5);
       cube12.style.display = "block";
     } else if (
