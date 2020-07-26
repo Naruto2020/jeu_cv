@@ -1,29 +1,31 @@
-window.addEventListener("load", function () {
-  // page accueil du jeu
+// page accueil du jeu
+var canvas = document.querySelector("#canvas");
+var context = canvas.getContext("2d");
+canvas.style = "border:solid 1px black";
 
-  var canvas = document.querySelector("#canvas");
-  var context = canvas.getContext("2d");
-  canvas.style = "border:solid 1px black";
+//canvas.width = window.innerWidth;
+//canvas.height = window.innerHeight;
 
+var pageC = function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
+  // redimenssion canvas
   var fenCanvas = function () {
-    if (canvas.width < window.innerWidth) {
-      canvas.width = window.innerWidth;
+    if (canvas.width.innerHTML < window.innerWidth) {
+      canvas.width.innerHTML = window.innerWidth;
     }
-    if (canvas.height < window.innerHeight) {
-      canvas.height = window.innerHeight;
+    if (canvas.height.innerHTML < window.innerHeight) {
+      canvas.height.innerHTML = window.innerHeight;
     }
   };
-  window.onresize = fenCanvas;
 
   // joueur
   var jinn = new Image();
   jinn.src = "assets/images/jinn.gif";
   jinn.onload = function () {
     context.drawImage(jinn, 0, 0, 46, 40, 320, 80, 100, 100);
-    context.drawImage(jinn, 0, 0, 40, 70, 680, 550, 100, 150);
+    context.drawImage(jinn, 0, 0, 40, 70, 680, 400, 100, 150);
 
     context.strokeStyle = "#fff";
     context.strokeRect(340, 90, 80, 90);
@@ -52,14 +54,14 @@ window.addEventListener("load", function () {
   context.fillText(
     "APPUYEZ SUR LES TOUCHES FLECHES DE VOTRE CLAVIER ← → & ↑↓  POUR VOUS DEPLACER",
     200,
-    400
+    340
   );
 
   var dessin = function () {
     var X = canvas.width;
     var Y = canvas.height;
     context.strokeStyle = "magenta";
-    context.strokeText("APPUYEZ SUR  <<ESPACE>>  POUR CONTINUER", 500, 720);
+    context.strokeText("APPUYEZ SUR  <<ESPACE>>  POUR CONTINUER", 500, 400);
   };
   dessin();
 
@@ -68,13 +70,13 @@ window.addEventListener("load", function () {
       canvas.style.display = "none";
     }
   };
-  //});
+};
 
-  // page 2 du jeux
+//var largEcran = window.innerWidth;
+//var hautEcran = window.innerHeight;
 
-  //window.onload = function () {
-
-  // les varibles globales
+// page 2 du jeux  les varibles globales
+var animation = function () {
   var largEcran = window.innerWidth;
   var hautEcran = window.innerHeight;
   var decorsB = 65;
@@ -185,6 +187,7 @@ window.addEventListener("load", function () {
   });
 
   // redimenssion de la fenetre
+
   var fenetre = function () {
     if (largEcran.innerHTML < window.innerWidth) {
       largEcran.innerHTML = window.innerWidth;
@@ -193,7 +196,6 @@ window.addEventListener("load", function () {
       hautEcran.innerHTML = window.innerHeight;
     }
   };
-  window.onresize = fenetre;
 
   // déplacement du joueur et gestion des collisions
   window.onkeydown = function (event) {
@@ -467,7 +469,7 @@ window.addEventListener("load", function () {
       cube11.style.left = bor11L + mouv11X + "px";
       cube11.style.top = bor11T + mouv11Y + "px";
     }
-  }, 200);
+  }, 40);
 
   // avant demarer jeux
 
@@ -547,5 +549,17 @@ window.addEventListener("load", function () {
       mouv11Y = 0;
     }
   };
-  //};
+};
+/* window.addEventListener("load", function () {
+  pageC();
+  animation();
+ 
+});*/
+$(function () {
+  pageC();
+  animation();
+  $(window).resize(function () {
+    animation.fenetre();
+    pageC.fenCanvas();
+  });
 });
