@@ -40,7 +40,7 @@ var pageC = function () {
   context.fillText("06.34.01.16.50 ", 460, 200);
   context.fillText("stevefranck.kounga@gmail.com", 460, 230);
   context.fillText(
-    "https://www.linkedin.com/in/ste ve-kounga-4390241a4/",
+    "https://www.linkedin.com/in/steve-kounga-full-stack/",
     460,
     260
   );
