@@ -469,7 +469,7 @@ var animation = function () {
       cube11.style.left = bor11L + mouv11X + "px";
       cube11.style.top = bor11T + mouv11Y + "px";
     }
-  }, 40);
+  }, 30);
 
   // avant demarer jeux
 
