@@ -21,7 +21,7 @@
 }
 
 body {
-  margin-left: 0px;
+  margin: 0px;
   font-family: "Trebuchet MS ", arial, serif;
   background-image: url(../images/fond_jaune.png);
   color: #181818;
@@ -58,7 +58,7 @@ a {
   font-style: italic;
 }
 
-a:hover /* survol des liens du menu */ {
+a:hover /* survol des liens  */ {
   color: #760001;
   border-bottom: 3px solid #760001;
 }

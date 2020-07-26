@@ -550,11 +550,7 @@ var animation = function () {
     }
   };
 };
-/* window.addEventListener("load", function () {
-  pageC();
-  animation();
- 
-});*/
+
 $(function () {
   pageC();
   animation();
