@@ -109,8 +109,8 @@ var animation = function () {
   var joueurT = parseFloat(joueur.style.top);
   var joueurB = joueurT + haut;
 
-  var deplacementX = 5;
-  var deplacementY = 5;
+  var deplacementX = 6;
+  var deplacementY = 6;
 
   // cube JS couleur grise
   var divs = document.querySelectorAll("div");
@@ -209,7 +209,7 @@ var animation = function () {
         if (joueurL + deplacementX <= 0) {
           deplacementX = 0;
         } else {
-          deplacementX = 5;
+          deplacementX = 6;
         }
 
         joueur.style.left = joueurL - deplacementX + "px";
@@ -220,7 +220,7 @@ var animation = function () {
         if (joueurT + deplacementY <= 32) {
           deplacementY = 0;
         } else {
-          deplacementY = 5;
+          deplacementY = 6;
         }
 
         if (joueurT + deplacementY <= bor5B) {
@@ -228,7 +228,7 @@ var animation = function () {
           affichage.innerHTML.display;
           cube5.style.display = "none";
         } else {
-          deplacementY = 5;
+          deplacementY = 6;
         }
 
         joueur.style.top = joueurT - deplacementY + "px";
@@ -240,7 +240,7 @@ var animation = function () {
         if (joueurR + deplacementX >= largEcran) {
           deplacementX = 0;
         } else {
-          deplacementX = 5;
+          deplacementX = 6;
         }
 
         if (joueurR + deplacementX > bor8L) {
@@ -256,7 +256,7 @@ var animation = function () {
           cube8.style.display = "none";
           cube15.style.display = "block";
         } else {
-          deplacementX = 5;
+          deplacementX = 6;
         }
 
         joueur.style.left = joueurL + deplacementX + "px";
@@ -268,7 +268,7 @@ var animation = function () {
         if (joueurB + deplacementY >= hautEcran - decorsB) {
           deplacementY = 0;
         } else {
-          deplacementY = 5;
+          deplacementY = 6;
         }
 
         if (joueurB + deplacementY > bor7T) {
@@ -470,7 +470,7 @@ var animation = function () {
       cube11.style.left = bor11L + mouv11X + "px";
       cube11.style.top = bor11T + mouv11Y + "px";
     }
-  }, 30);
+  }, 50);
 
   // avant demarer jeux
 
