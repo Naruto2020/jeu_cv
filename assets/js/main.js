@@ -3,22 +3,23 @@ var canvas = document.querySelector("#canvas");
 var context = canvas.getContext("2d");
 canvas.style = "border:solid 1px black";
 
-//canvas.width = window.innerWidth;
-//canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+var fenCanvas = function () {
+  if (canvas.width.innerHTML < window.innerWidth) {
+    canvas.width.innerHTML = window.innerWidth;
+  }
+  if (canvas.height.innerHTML < window.innerHeight) {
+    canvas.height.innerHTML = window.innerHeight;
+  }
+};
 
 var pageC = function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
   // redimenssion canvas
-  var fenCanvas = function () {
-    if (canvas.width.innerHTML < window.innerWidth) {
-      canvas.width.innerHTML = window.innerWidth;
-    }
-    if (canvas.height.innerHTML < window.innerHeight) {
-      canvas.height.innerHTML = window.innerHeight;
-    }
-  };
 
   // joueur
   var jinn = new Image();
@@ -72,8 +73,17 @@ var pageC = function () {
   };
 };
 
-//var largEcran = window.innerWidth;
-//var hautEcran = window.innerHeight;
+var largEcran = window.innerWidth;
+var hautEcran = window.innerHeight;
+
+var fenetre = function () {
+  if (largEcran.innerHTML < window.innerWidth) {
+    largEcran.innerHTML = window.innerWidth;
+  }
+  if (hautEcran.innerHTML < window.innerHeight) {
+    hautEcran.innerHTML = window.innerHeight;
+  }
+};
 
 // page 2 du jeux  les varibles globales
 var animation = function () {
@@ -187,15 +197,6 @@ var animation = function () {
   });
 
   // redimenssion de la fenetre
-
-  var fenetre = function () {
-    if (largEcran.innerHTML < window.innerWidth) {
-      largEcran.innerHTML = window.innerWidth;
-    }
-    if (hautEcran.innerHTML < window.innerHeight) {
-      hautEcran.innerHTML = window.innerHeight;
-    }
-  };
 
   // déplacement du joueur et gestion des collisions
   window.onkeydown = function (event) {
@@ -555,7 +556,7 @@ $(function () {
   pageC();
   animation();
   $(window).resize(function () {
-    animation.fenetre();
-    pageC.fenCanvas();
+    fenetre();
+    fenCanvas();
   });
 });
