@@ -89,7 +89,7 @@ var fenetre = function () {
 var animation = function () {
   var largEcran = window.innerWidth;
   var hautEcran = window.innerHeight;
-  var decorsB = 30;
+  var decorsB = 65;
 
   // score
   var affichage = document.getElementById("cube14");
