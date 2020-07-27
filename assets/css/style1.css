@@ -153,8 +153,8 @@ span a {
   border-radius: 0px 0px 10px 10px;
   box-sizing: border-box;
   color: white;
-  width: 200px;
-  height: 180px;
+  width: 500px;
+  height: 250px;
   position: absolute;
 }
 #cube9 p {
@@ -162,9 +162,9 @@ span a {
 }
 #cube9 button {
   position: absolute;
-  top: 140px;
+  top: 200px;
   text-decoration: none;
-  left: 150px;
+  left: 250px;
 }
 button:hover {
   text-decoration: underline;

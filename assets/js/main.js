@@ -178,9 +178,6 @@ var animation = function () {
   // bouton close masque regle du jeu
   var buttons = document.querySelectorAll("button");
   var btnClose = buttons[0];
-  btnClose.addEventListener("click", function () {
-    cube9.style.display = "none";
-  });
 
   // bouton start 1
   var buttons = document.querySelectorAll("button");
@@ -199,88 +196,92 @@ var animation = function () {
   // redimenssion de la fenetre
 
   // déplacement du joueur et gestion des collisions
-  window.onkeydown = function (event) {
-    finGame();
-    var code = event.keyCode;
+  btnClose.addEventListener("click", function () {
+    cube9.style.display = "none";
 
-    switch (code) {
-      case 37:
-        var joueurL = parseFloat(joueur.style.left);
-        if (joueurL + deplacementX <= 0) {
-          deplacementX = 0;
-        } else {
-          deplacementX = 6;
-        }
+    window.onkeydown = function (event) {
+      finGame();
+      var code = event.keyCode;
 
-        joueur.style.left = joueurL - deplacementX + "px";
+      switch (code) {
+        case 37:
+          var joueurL = parseFloat(joueur.style.left);
+          if (joueurL + deplacementX <= 0) {
+            deplacementX = 0;
+          } else {
+            deplacementX = 6;
+          }
 
-        break;
-      case 38:
-        var joueurT = parseFloat(joueur.style.top);
-        if (joueurT + deplacementY <= 32) {
-          deplacementY = 0;
-        } else {
-          deplacementY = 6;
-        }
+          joueur.style.left = joueurL - deplacementX + "px";
 
-        if (joueurT + deplacementY <= bor5B) {
-          score += pointJsBox;
-          affichage.innerHTML.display;
-          cube5.style.display = "none";
-        } else {
-          deplacementY = 6;
-        }
+          break;
+        case 38:
+          var joueurT = parseFloat(joueur.style.top);
+          if (joueurT + deplacementY <= 32) {
+            deplacementY = 0;
+          } else {
+            deplacementY = 6;
+          }
 
-        joueur.style.top = joueurT - deplacementY + "px";
+          if (joueurT + deplacementY <= bor5B) {
+            score += pointJsBox;
+            affichage.innerHTML.display;
+            cube5.style.display = "none";
+          } else {
+            deplacementY = 6;
+          }
 
-        break;
-      case 39:
-        var joueurL = parseFloat(joueur.style.left);
-        var joueurR = joueurL + larg;
-        if (joueurR + deplacementX >= largEcran) {
-          deplacementX = 0;
-        } else {
-          deplacementX = 6;
-        }
+          joueur.style.top = joueurT - deplacementY + "px";
 
-        if (joueurR + deplacementX > bor8L) {
-          score += pointJsBox;
-          cube8.style.display = "none";
-        }
+          break;
+        case 39:
+          var joueurL = parseFloat(joueur.style.left);
+          var joueurR = joueurL + larg;
+          if (joueurR + deplacementX >= largEcran) {
+            deplacementX = 0;
+          } else {
+            deplacementX = 6;
+          }
 
-        if (joueurR + deplacementX > bor6L) {
-          score += pointJsBox;
-          cube5.style.display = "none";
-          cube6.style.display = "none";
-          cube7.style.display = "none";
-          cube8.style.display = "none";
-          cube15.style.display = "block";
-        } else {
-          deplacementX = 6;
-        }
+          if (joueurR + deplacementX > bor8L) {
+            score += pointJsBox;
+            cube8.style.display = "none";
+          }
 
-        joueur.style.left = joueurL + deplacementX + "px";
+          if (joueurR + deplacementX > bor6L) {
+            score += pointJsBox;
+            cube5.style.display = "none";
+            cube6.style.display = "none";
+            cube7.style.display = "none";
+            cube8.style.display = "none";
+            cube15.style.display = "block";
+          } else {
+            deplacementX = 6;
+          }
 
-        break;
-      case 40:
-        var joueurT = parseFloat(joueur.style.top);
-        var joueurB = joueurT + haut;
-        if (joueurB + deplacementY >= hautEcran - decorsB) {
-          deplacementY = 0;
-        } else {
-          deplacementY = 6;
-        }
+          joueur.style.left = joueurL + deplacementX + "px";
 
-        if (joueurB + deplacementY > bor7T) {
-          score += pointJsBox;
-          cube7.style.display = "none";
-        }
-        joueur.style.top = joueurT + deplacementY + "px";
+          break;
+        case 40:
+          var joueurT = parseFloat(joueur.style.top);
+          var joueurB = joueurT + haut;
+          if (joueurB + deplacementY >= hautEcran - decorsB) {
+            deplacementY = 0;
+          } else {
+            deplacementY = 6;
+          }
 
-        break;
-    }
-    afficheScore();
-  };
+          if (joueurB + deplacementY > bor7T) {
+            score += pointJsBox;
+            cube7.style.display = "none";
+          }
+          joueur.style.top = joueurT + deplacementY + "px";
+
+          break;
+      }
+      afficheScore();
+    };
+  });
 
   // fonction affiche score
 
@@ -297,60 +298,67 @@ var animation = function () {
   var mouv1X = 5;
   var mouv1Y = 20;
 
-  var intervalID;
-  intervalID = window.setInterval(function () {
-    finGame();
-    var bloc1W = 50;
-    var bloc1H = 35;
-    var bor1L = parseFloat(cube1.style.left);
-    var bor1R = bor1L + bloc1W;
-    var bor1T = parseFloat(cube1.style.top);
-    var bor1B = bor1T + bloc1H;
-    cube1.style.borderRadius =
-      parseFloat(cube1.style.borderRadius) + 0.2 + "px";
+  btnClose.addEventListener("click", function () {
+    cube9.style.display = "none";
+    var intervalID;
+    intervalID = window.setInterval(function () {
+      finGame();
+      var bloc1W = 50;
+      var bloc1H = 35;
+      var bor1L = parseFloat(cube1.style.left);
+      var bor1R = bor1L + bloc1W;
+      var bor1T = parseFloat(cube1.style.top);
+      var bor1B = bor1T + bloc1H;
+      cube1.style.borderRadius =
+        parseFloat(cube1.style.borderRadius) + 0.2 + "px";
 
-    if (bor1L + mouv1X <= 560 || bor1R + mouv1X >= largEcran - bloc1W - 8) {
-      mouv1X = -mouv1X;
-    } else if (
-      bor1T + mouv1Y <= 40 + bloc1H ||
-      bor1B + mouv1Y >= hautEcran - decorsB - 343
-    ) {
-      mouv1Y = -mouv1Y;
-    } else {
-      cube1.style.left = bor1L + mouv1X + "px";
-      cube1.style.top = bor1T + mouv1Y + "px";
-    }
-  }, 60);
+      if (bor1L + mouv1X <= 560 || bor1R + mouv1X >= largEcran - bloc1W - 8) {
+        mouv1X = -mouv1X;
+      } else if (
+        bor1T + mouv1Y <= 40 + bloc1H ||
+        bor1B + mouv1Y >= hautEcran - decorsB - 343
+      ) {
+        mouv1Y = -mouv1Y;
+      } else {
+        cube1.style.left = bor1L + mouv1X + "px";
+        cube1.style.top = bor1T + mouv1Y + "px";
+      }
+    }, 60);
+  });
 
   // cube  couleur viollete
   var divs = document.querySelectorAll("div");
   var cube2 = divs[2];
   var mouv2X = 5;
   var mouv2Y = 20;
-  var intervalID1;
-  intervalID1 = window.setInterval(function () {
-    finGame();
-    var bloc2W = 50;
-    var bloc2H = 50;
-    var bor2L = parseFloat(cube2.style.left);
-    var bor2R = bor2L + bloc2W;
-    var bor2T = parseFloat(cube2.style.top);
-    var bor2B = bor2T + bloc2H;
 
-    cube2.style.borderRadius =
-      parseFloat(cube2.style.borderRadius) + 0.2 + "px";
-    if (bor2L + mouv2X <= 0 || bor2R + mouv2X >= largEcran - 450) {
-      mouv2X = -mouv2X;
-    } else if (
-      bor2T + mouv2Y <= 390 ||
-      bor2B + mouv2Y >= hautEcran - decorsB - 69
-    ) {
-      mouv2Y = -mouv2Y;
-    } else {
-      cube2.style.left = bor2L + mouv2X + "px";
-      cube2.style.top = bor2T + mouv2Y + "px";
-    }
-  }, 60);
+  btnClose.addEventListener("click", function () {
+    cube9.style.display = "none";
+    var intervalID1;
+    intervalID1 = window.setInterval(function () {
+      finGame();
+      var bloc2W = 50;
+      var bloc2H = 50;
+      var bor2L = parseFloat(cube2.style.left);
+      var bor2R = bor2L + bloc2W;
+      var bor2T = parseFloat(cube2.style.top);
+      var bor2B = bor2T + bloc2H;
+
+      cube2.style.borderRadius =
+        parseFloat(cube2.style.borderRadius) + 0.2 + "px";
+      if (bor2L + mouv2X <= 0 || bor2R + mouv2X >= largEcran - 450) {
+        mouv2X = -mouv2X;
+      } else if (
+        bor2T + mouv2Y <= 390 ||
+        bor2B + mouv2Y >= hautEcran - decorsB - 69
+      ) {
+        mouv2Y = -mouv2Y;
+      } else {
+        cube2.style.left = bor2L + mouv2X + "px";
+        cube2.style.top = bor2T + mouv2Y + "px";
+      }
+    }, 60);
+  });
 
   // cube transparent
   var divs = document.querySelectorAll("div");
@@ -358,27 +366,34 @@ var animation = function () {
   cube3.style.backgroundColor = " rgba(64, 0, 64, 0.5)";
   let mouv3X = 20;
   let mouv3Y = 10;
-  var intervalID2;
-  intervalID2 = window.setInterval(function () {
-    finGame();
-    var bloc3W = 50;
-    var bloc3H = 50;
-    var bor3L = parseFloat(cube3.style.left);
-    var bor3R = bor3L + bloc3W;
-    var bor3T = parseFloat(cube3.style.top);
-    var bor3B = bor3T + bloc3H;
 
-    //cube3.style.borderRadius =
-    // parseFloat(cube3.style.borderRadius) + 0.2 + "px";
-    if (bor3L + mouv3X <= 250 || bor3R + mouv3X >= largEcran - 250) {
-      mouv3X = -mouv3X;
-    } else if (bor3T + mouv3Y <= 150 || bor3B + mouv3Y >= hautEcran - decorsB) {
-      mouv3Y = -mouv3Y;
-    } else {
-      cube3.style.left = bor3L + mouv3X + "px";
-      cube3.style.top = bor3T + mouv3Y + "px";
-    }
-  }, 60);
+  btnClose.addEventListener("click", function () {
+    cube9.style.display = "none";
+    var intervalID2;
+    intervalID2 = window.setInterval(function () {
+      finGame();
+      var bloc3W = 50;
+      var bloc3H = 50;
+      var bor3L = parseFloat(cube3.style.left);
+      var bor3R = bor3L + bloc3W;
+      var bor3T = parseFloat(cube3.style.top);
+      var bor3B = bor3T + bloc3H;
+
+      //cube3.style.borderRadius =
+      // parseFloat(cube3.style.borderRadius) + 0.2 + "px";
+      if (bor3L + mouv3X <= 250 || bor3R + mouv3X >= largEcran - 250) {
+        mouv3X = -mouv3X;
+      } else if (
+        bor3T + mouv3Y <= 150 ||
+        bor3B + mouv3Y >= hautEcran - decorsB
+      ) {
+        mouv3Y = -mouv3Y;
+      } else {
+        cube3.style.left = bor3L + mouv3X + "px";
+        cube3.style.top = bor3T + mouv3Y + "px";
+      }
+    }, 60);
+  });
 
   // cube argenté
   var divs = document.querySelectorAll("div");
@@ -386,27 +401,34 @@ var animation = function () {
   cube4.style.backgroundColor = " rgb(64, 0, 0)";
   let mouv4X = 8;
   let mouv4Y = 4;
-  var intervalID3;
-  intervalID3 = window.setInterval(function () {
-    finGame();
-    var bloc4W = 80;
-    var bloc4H = 80;
-    var bor4L = parseFloat(cube4.style.left);
-    var bor4R = bor4L + bloc4W;
-    var bor4T = parseFloat(cube4.style.top);
-    var bor4B = bor4T + bloc4H;
 
-    cube4.style.borderRadius =
-      parseFloat(cube4.style.borderRadius) + 0.2 + "px";
-    if (bor4L + mouv4X <= 150 || bor4R + mouv4X >= largEcran - 500) {
-      mouv4X = -mouv4X;
-    } else if (bor4T + mouv4Y <= 150 || bor4B + mouv4Y >= hautEcran - decorsB) {
-      mouv4Y = -mouv4Y;
-    } else {
-      cube4.style.left = bor4L + mouv4X + "px";
-      cube4.style.top = bor4T + mouv4Y + "px";
-    }
-  }, 60);
+  btnClose.addEventListener("click", function () {
+    cube9.style.display = "none";
+    var intervalID3;
+    intervalID3 = window.setInterval(function () {
+      finGame();
+      var bloc4W = 80;
+      var bloc4H = 80;
+      var bor4L = parseFloat(cube4.style.left);
+      var bor4R = bor4L + bloc4W;
+      var bor4T = parseFloat(cube4.style.top);
+      var bor4B = bor4T + bloc4H;
+
+      cube4.style.borderRadius =
+        parseFloat(cube4.style.borderRadius) + 0.2 + "px";
+      if (bor4L + mouv4X <= 150 || bor4R + mouv4X >= largEcran - 500) {
+        mouv4X = -mouv4X;
+      } else if (
+        bor4T + mouv4Y <= 150 ||
+        bor4B + mouv4Y >= hautEcran - decorsB
+      ) {
+        mouv4Y = -mouv4Y;
+      } else {
+        cube4.style.left = bor4L + mouv4X + "px";
+        cube4.style.top = bor4T + mouv4Y + "px";
+      }
+    }, 60);
+  });
 
   // étoile fillante
   var divs = document.querySelectorAll("div");
@@ -415,30 +437,34 @@ var animation = function () {
 
   let mouv10X = 13;
   let mouv10Y = 6;
-  var intervalID4;
-  intervalID4 = window.setInterval(function () {
-    finGame();
-    var bloc10W = 20;
-    var bloc10H = 5;
-    var bor10L = parseFloat(cube10.style.left);
-    var bor10R = bor10L + bloc10W;
-    var bor10T = parseFloat(cube10.style.top);
-    var bor10B = bor10T + bloc10H;
 
-    cube10.style.borderRadius =
-      parseFloat(cube10.style.borderRadius) + 0.2 + "px";
-    if (bor10L + mouv10X <= 0 || bor10R + mouv10X >= largEcran) {
-      mouv10X = -mouv10X;
-    } else if (
-      bor10T + mouv10Y <= 30 ||
-      bor10B + mouv10Y >= hautEcran - decorsB
-    ) {
-      mouv10Y = -mouv10Y;
-    } else {
-      cube10.style.left = bor10L + mouv10X + "px";
-      cube10.style.top = bor10T + mouv10Y + "px";
-    }
-  }, 20);
+  btnClose.addEventListener("click", function () {
+    cube9.style.display = "none";
+    var intervalID4;
+    intervalID4 = window.setInterval(function () {
+      finGame();
+      var bloc10W = 20;
+      var bloc10H = 5;
+      var bor10L = parseFloat(cube10.style.left);
+      var bor10R = bor10L + bloc10W;
+      var bor10T = parseFloat(cube10.style.top);
+      var bor10B = bor10T + bloc10H;
+
+      cube10.style.borderRadius =
+        parseFloat(cube10.style.borderRadius) + 0.2 + "px";
+      if (bor10L + mouv10X <= 0 || bor10R + mouv10X >= largEcran) {
+        mouv10X = -mouv10X;
+      } else if (
+        bor10T + mouv10Y <= 30 ||
+        bor10B + mouv10Y >= hautEcran - decorsB
+      ) {
+        mouv10Y = -mouv10Y;
+      } else {
+        cube10.style.left = bor10L + mouv10X + "px";
+        cube10.style.top = bor10T + mouv10Y + "px";
+      }
+    }, 20);
+  });
 
   // cube gameball
   var divs = document.querySelectorAll("div");
@@ -448,29 +474,34 @@ var animation = function () {
   var mouv11X = 3;
   var mouv11Y = 7;
   var intervalID5;
-  intervalID5 = window.setInterval(function () {
-    finGame();
-    var bloc11W = 30;
-    var bloc11H = 30;
-    var bor11L = parseFloat(cube11.style.left);
-    var bor11R = bor11L + bloc11W;
-    var bor11T = parseFloat(cube11.style.top);
-    var bor11B = bor11T + bloc11H;
-    cube11.style.borderRadius =
-      parseFloat(cube11.style.borderRadius) + 0.1 + "px";
-    if (bor11R + mouv11X >= largEcran) {
-      clearInterval(intervalID5);
-      cube12.style.display = "block";
-    } else if (
-      bor11T + mouv11Y <= 33 ||
-      bor11B + mouv11Y >= hautEcran - decorsB
-    ) {
-      mouv11Y = -mouv11Y;
-    } else {
-      cube11.style.left = bor11L + mouv11X + "px";
-      cube11.style.top = bor11T + mouv11Y + "px";
-    }
-  }, 50);
+
+  btnClose.addEventListener("click", function () {
+    cube9.style.display = "none";
+
+    intervalID5 = window.setInterval(function () {
+      finGame();
+      var bloc11W = 30;
+      var bloc11H = 30;
+      var bor11L = parseFloat(cube11.style.left);
+      var bor11R = bor11L + bloc11W;
+      var bor11T = parseFloat(cube11.style.top);
+      var bor11B = bor11T + bloc11H;
+      cube11.style.borderRadius =
+        parseFloat(cube11.style.borderRadius) + 0.1 + "px";
+      if (bor11R + mouv11X >= largEcran) {
+        clearInterval(intervalID5);
+        cube12.style.display = "block";
+      } else if (
+        bor11T + mouv11Y <= 33 ||
+        bor11B + mouv11Y >= hautEcran - decorsB
+      ) {
+        mouv11Y = -mouv11Y;
+      } else {
+        cube11.style.left = bor11L + mouv11X + "px";
+        cube11.style.top = bor11T + mouv11Y + "px";
+      }
+    }, 60);
+  });
 
   // avant demarer jeux
 
