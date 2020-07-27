@@ -89,7 +89,7 @@ var fenetre = function () {
 var animation = function () {
   var largEcran = window.innerWidth;
   var hautEcran = window.innerHeight;
-  var decorsB = 65;
+  var decorsB = 30;
 
   // score
   var affichage = document.getElementById("cube14");
@@ -556,7 +556,7 @@ $(function () {
   pageC();
   animation();
   $(window).resize(function () {
-    fenetre();
     fenCanvas();
+    fenetre();
   });
 });
