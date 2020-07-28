@@ -6,6 +6,7 @@ canvas.style = "border:solid 1px black";
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+// redimenssion canvas
 var fenCanvas = function () {
   if (canvas.width.innerHTML < window.innerWidth) {
     canvas.width.innerHTML = window.innerWidth;
@@ -18,8 +19,6 @@ var fenCanvas = function () {
 var pageC = function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-
-  // redimenssion canvas
 
   // joueur
   var jinn = new Image();
@@ -75,7 +74,7 @@ var pageC = function () {
 
 var largEcran = window.innerWidth;
 var hautEcran = window.innerHeight;
-
+// redimenssion ecran
 var fenetre = function () {
   if (largEcran.innerHTML < window.innerWidth) {
     largEcran.innerHTML = window.innerWidth;
